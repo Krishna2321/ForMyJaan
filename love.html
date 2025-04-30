@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Miss You ❤️</title>
+  <link rel="stylesheet" href="love.css">
+</head>
+<body>
+  <div id="content">
+    <h1>I Miss You Jaana ❤️</h1>
+    <p>Hey Jaana, I miss you a lot... Do you miss me too?</p>
+    <button onclick="yesLove()">Yes, I miss you My Hubby</button>
+    <button onclick="noLove()">No, I don't</button>
+  </div>
+
+  <script>
+    function yesLove() {
+      document.getElementById('content').innerHTML = `
+        <div class="love-message">
+          <h1>I Love You So Much 💖</h1>
+          <p>
+            You're the sunshine in my life, the reason I smile every day, and the most beautiful person inside and out. 
+            I think about you every moment and cherish every memory we share. You are my heart, my soul, and my everything. 💘
+            I can't wait to hold you in my arms and tell you just how much I love you.
+          </p>
+          <button onclick="goHome()">Back to Home</button>
+        </div>
+      `;
+      startFallingHearts();
+    }
+
+    function noLove() {
+      document.getElementById('content').innerHTML = `
+        <div class="love-message">
+          <h1>How Rude 😢</h1>
+          <p>
+            That's not fair! I know you miss me deep down. Try again and don't break my heart 😔
+          </p>
+          <button onclick="goHome()">Try Again</button>
+        </div>
+      `;
+    }
+
+    function goHome() {
+      location.reload();
+    }
+
+    function startFallingHearts() {
+      const emojis = ['❤️','🌹'];
+      setInterval(() => {
+        const fall = document.createElement('div');
+        fall.classList.add('falling');
+        fall.style.left = Math.random() * 100 + 'vw';
+        fall.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        fall.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        document.body.appendChild(fall);
+        setTimeout(() => fall.remove(), 5000);
+      }, 300);
+    }
+  </script>
+</body>
+</html>
